@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.LoginFragment"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/white"
+                app:navigationIcon="@drawable/ic_back"
+                app:menu="@menu/menu_login_main">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/text_in"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_16" />
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/appBar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_22"
+                android:layout_marginEnd="@dimen/dimen_16"
+                android:paddingBottom="@dimen/dimen_30">
+
+                <Button
+                    android:id="@+id/btn_login_google"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_14"
+                    android:layout_marginEnd="@dimen/dimen_14"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/text_in_google"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_12"
+                    app:icon="@drawable/ic_google"
+                    app:iconTint="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_login_fb"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_14"
+                    android:layout_marginTop="@dimen/dimen_12"
+                    android:layout_marginEnd="@dimen/dimen_14"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/text_in_fb"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_12"
+                    app:icon="@drawable/ic_facebook"
+                    app:iconTint="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_login_google" />
+
+                <LinearLayout
+                    android:id="@+id/linear_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_30"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_login_fb">
+
+                    <View
+                        android:id="@+id/divider_start"
+                        android:layout_width="145dp"
+                        android:layout_height="1dp"
+                        android:background="@drawable/bg_dividers" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        android:layout_marginEnd="@dimen/dimen_10"
+                        android:text="@string/text_in_or"
+                        android:textColor="@color/grey" />
+
+                    <View
+                        android:id="@+id/divider_end"
+                        android:layout_width="145dp"
+                        android:layout_height="1dp"
+                        android:background="@drawable/bg_dividers" />
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_14"
+                    android:layout_marginTop="@dimen/dimen_43"
+                    android:layout_marginEnd="@dimen/dimen_14"
+                    app:boxBackgroundColor="@color/white"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/linear_divider">
+
+                    <EditText
+                        android:id="@+id/edt_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/text_in_hint_username"
+                        android:inputType="textEmailAddress"
+                        android:textSize="@dimen/font_14" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_psw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_14"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginEnd="@dimen/dimen_14"
+                    app:boxBackgroundColor="@color/white"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/til_username"
+                    app:passwordToggleEnabled="true">
+
+                    <EditText
+                        android:id="@+id/edt_psw"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/text_in_hint_psw"
+                        android:inputType="textPassword"
+                        android:textSize="@dimen/font_14" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_forgot_psw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_26"
+                    android:layout_marginEnd="@dimen/dimen_14"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/text_in_hint_forgot_psw"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/font_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/til_psw" />
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_14"
+                    android:layout_marginTop="@dimen/dimen_34"
+                    android:layout_marginEnd="@dimen/dimen_14"
+                    android:backgroundTint="@color/green"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/text_in_btn"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_forgot_psw" />
+
+                <LinearLayout
+                    android:id="@+id/linear_text_sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_34"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/btn_login">
+
+                    <TextView
+                        android:id="@+id/tv_account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/text_in_ask_link"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_10" />
+
+                    <TextView
+                        android:id="@+id/tv_sign_up"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/text_in_sign_up"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/font_10" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,7 +23,11 @@ class WatchlistRepository {
                 Log.d(TAG, "SUCCESS")
                 Log.d(TAG, "${response.body()}")
 
-                showSuccess.postValue(response.body())
+                val body = response.body()
+
+                body?.let {
+                    showSuccess.postValue(it.data)
+                }
             } else {
                 Log.d(TAG, "FAILURE")
                 Log.d(TAG, "${response.body()}")

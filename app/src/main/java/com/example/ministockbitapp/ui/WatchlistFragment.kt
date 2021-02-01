@@ -1,14 +1,17 @@
 package com.example.ministockbitapp.ui
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.ministockbitapp.R
-import kotlinx.android.synthetic.main.fragment_stockbit.*
+import kotlinx.android.synthetic.main.fragment_watchlist.*
 
 class WatchlistFragment : Fragment() {
 
@@ -20,7 +23,7 @@ class WatchlistFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_stockbit, container, false)
+        val view = inflater.inflate(R.layout.fragment_watchlist, container, false)
 
         viewModel = ViewModelProviders.of(this).get(WatchlistViewModel::class.java)
         return view
@@ -29,12 +32,21 @@ class WatchlistFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initView()
         setupRecyclerView()
         setupObservers()
 
         viewModel.getWatchlist()
 
 //        tv_name_stock.text = arguments?.getString("nameArgs")
+    }
+
+    private fun initView() {
+        swipe.setOnRefreshListener {
+            Handler().postDelayed(Runnable {
+                swipe.isRefreshing = false
+            }, 2000)
+        }
     }
 
     private fun setupRecyclerView() {
@@ -48,6 +60,7 @@ class WatchlistFragment : Fragment() {
 
             watchList?.let {
                 adapterStock.setData(it)
+                progressbar.visibility = View.GONE
             }
         })
 

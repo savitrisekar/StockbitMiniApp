@@ -31,7 +31,7 @@
         android:id="@+id/stockbitFragment"
         android:name="com.example.ministockbitapp.ui.StockbitFragment"
         android:label="testing"
-        tools:layout="@layout/fragment_testing">
+        tools:layout="@layout/fragment_stockbit">
         <argument
             android:name="nameArgs"
             android:defaultValue=""

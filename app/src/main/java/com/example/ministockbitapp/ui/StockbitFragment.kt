@@ -14,7 +14,7 @@ class StockbitFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_testing, container, false)
+        val view = inflater.inflate(R.layout.fragment_stockbit, container, false)
 
         val fm = activity?.getSupportFragmentManager()
         fm?.beginTransaction()
